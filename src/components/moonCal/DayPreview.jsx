@@ -50,6 +50,26 @@ export const DayPreview = (props) => {
         return { boxShadow: `inset ${cover}em 0 1px white, 0 0 3px #444` };
     };
 
+    const first = () => {
+        const rise = +day.moon.times.rise.slice(0,2)
+        const set = +day.moon.times.set.slice(0,2)
+        if (rise < set) { 
+            return <div>↑ {day.moon.times.rise}</div> 
+        } else {
+            return <div>↓ {day.moon.times.set}</div>     
+        } 
+    }
+
+    const second = () => {
+        const rise = +day.moon.times.rise.slice(0,2)
+        const set = +day.moon.times.set.slice(0,2)
+        if (rise > set) { 
+            return <div>↑ {day.moon.times.rise}</div> 
+        } else {
+            return <div>↓ {day.moon.times.set}</div> 
+        } 
+    }
+
     const sunHour = () => {
         let hours = []
         for (let i = 0; i < 23; i++) {  
@@ -80,11 +100,13 @@ export const DayPreview = (props) => {
                 </div>
                 <div className="moon-icon" style={moonShadow()} />
                 <div className="times">
+                    
+                        {first()}
+                        {/* ↑ {day.moon.times.rise} */}
+                    
                     <div>
-                        ↑ {day.moon.times.rise}
-                    </div>
-                    <div>
-                        ↓ {day.moon.times.set}
+                        {second()}
+                        {/* ↓ {day.moon.times.set} */}
                     </div>
                 </div>
             </div>
