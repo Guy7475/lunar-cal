@@ -29,7 +29,7 @@ export const DayPreview = (props) => {
         const dayStyle = {};
         if (day.monthNum % 2) {
             dayStyle.color = 'white';
-            dayStyle.backgroundColor = '#3b3b3b';
+            dayStyle.backgroundColor = '#333333';
         } else {
             dayStyle.color = 'white';
             dayStyle.backgroundColor = '#5a5a5a';
@@ -45,7 +45,7 @@ export const DayPreview = (props) => {
         const phase = day.moon.illum.phase;
         let cover;
         const factor = 3;
-        
+
         if (phase <= 0.5) cover = phase * factor;
         else cover = -(1 - phase) * factor;
 
@@ -78,10 +78,10 @@ export const DayPreview = (props) => {
             <div className="moon-icon" style={moonShadow()} />
             <div className="times">
                 <div>
-                    ↥ {day.moon.times.rise}
+                🡅 {day.moon.times.rise}
                 </div>
                 <div>
-                    ⤓ {day.moon.times.set}
+                🡇 {day.moon.times.set}
                 </div>
             </div>
             <div className="light-bars">
