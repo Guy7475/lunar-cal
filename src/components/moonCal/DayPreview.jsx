@@ -1,5 +1,3 @@
-// import { isToday } from "date-fns";
-// import { moonCalcService } from "../../services/moonCalService";
 import { useEffect, useRef, useState } from "react";
 
 
@@ -52,8 +50,12 @@ export const DayPreview = (props) => {
         return { boxShadow: `inset ${cover}em 0 1px white, 0 0 3px #444` };
     };
 
-    const lightBar = () => {
-        // console.log(day.sun.times)
+    const sunHour = () => {
+        let hours = []
+        for (let i = 0; i < 23; i++) {  
+            hours.push(<div className="sun-hour" key={i}/>)
+        }
+        return hours
     };
 
     const setFocus = () => {
@@ -68,24 +70,28 @@ export const DayPreview = (props) => {
     if (!day) return <div>Loading...</div>;
     return (
         <div className="day-preview" style={dayStyle} ref={divRef}>
-            <div className="date">
-                {day.monthName}-
-                {day.dayInMonth}
-            </div>
-            <div className="illum">
-                {Math.round(day.moon.illum.fraction * 100)}%
-            </div>
-            <div className="moon-icon" style={moonShadow()} />
-            <div className="times">
-                <div>
-                🡅 {day.moon.times.rise}
+            <div className="day-data">
+                <div className="date">
+                    {day.monthName}-
+                    {day.dayInMonth}
                 </div>
-                <div>
-                🡇 {day.moon.times.set}
+                <div className="illum">
+                    {Math.round(day.moon.illum.fraction * 100)}%
+                </div>
+                <div className="moon-icon" style={moonShadow()} />
+                <div className="times">
+                    <div>
+                        ↑ {day.moon.times.rise}
+                    </div>
+                    <div>
+                        ↓ {day.moon.times.set}
+                    </div>
                 </div>
             </div>
             <div className="light-bars">
-                {/* <div className="sunlight" style={lightBar()}/> */}
+                <div className="sun-bar" >
+                    {/* {sunHour()} */}
+                </div>
             </div>
             {setFocus()}
         </div>

@@ -23,27 +23,43 @@
         grid-template-columns: repeat(7, 1fr);
 
         .day-preview {
-            * {
-                margin-bottom: .25em;
-            }
             border: 1px solid #000000;
-            padding: .5em;
             font-size: .75em;
             text-align: center;
-            
-            .moon-icon {
-                margin-bottom: .25em;
-                margin: auto;
-                background-color:black;
-                width: 1.5em;
-                height: 1.5em;
-                border-radius: 50%;
-                // box-shadow: inset .5em 0 1px #000000, 0 0 3px #444;
+
+            .day-data {
+                * {
+                    margin-bottom: .25em;
+                }
+
+                padding: .5em;
+
+                .date {
+                    font-weight: 600;
+                }
+
+                .moon-icon {
+                    margin: auto;
+                    margin-bottom: .5em;
+                    margin-top: .5em;
+                    background-color: black;
+                    width: 2em;
+                    height: 2em;
+                    border-radius: 50%;
+                }
             }
 
-            .sunlight {
+            .sun-bar {
                 height: .5em;
-                background-color: yellow;
+
+                display: grid;
+                grid-template-columns: repeat(24, 1fr);
+
+                .sun-hour {
+                    background-color: yellow;
+                    // border: 1px solid blue;
+                    // width: calc(100%/24);
+                }
             }
         }
     }
