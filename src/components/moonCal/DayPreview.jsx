@@ -36,7 +36,7 @@ export const DayPreview = (props) => {
         }
         if (isToday()) {
             dayStyle.backgroundColor = 'navy';
-            dayStyle.border = '1px solid yellow';
+            dayStyle.border = '1px solid white';
         }
         setDayStyle(dayStyle);
     };

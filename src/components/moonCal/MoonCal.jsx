@@ -40,7 +40,7 @@ export const MoonCal = (props) => {
         //TODO - remove the timeout and set autofocus
         setTimeout(() => {
             // document.getElementById("todayDiv").focus();
-            document.getElementById("todayDiv").scrollIntoView()
+            document.getElementById("todayDiv").scrollIntoView({block: 'center' })
         }, 300);
     };
 
