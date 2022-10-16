@@ -1,0 +1,13 @@
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    height: $headerHeight;
+    width: 100%;
+    background-color: $appColor;
+    border-top: 2px solid black;
+    
+    
+    .footer-elements {
+        display: flex;
+    }
+}

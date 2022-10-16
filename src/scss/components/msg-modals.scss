@@ -1,0 +1,25 @@
+.msg-modal {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: $headerHeight;
+    bottom: 0;
+    padding: 1em 2em;
+    visibility: hidden;
+
+    &.success-modal {
+        color: white;
+        background-image: linear-gradient(to right, #00c964, #008b46);
+        background-color: #00c964;
+        border-top: 4px solid #00bdbd;
+    }
+    &.error-modal {
+        color: white;
+        background-image: linear-gradient(to right, rgb(201, 0, 0), rgb(255, 0, 0));
+        background-color: rgb(255, 0, 0);
+        border-bottom: 4px solid rgb(255, 251, 0);
+    }
+}

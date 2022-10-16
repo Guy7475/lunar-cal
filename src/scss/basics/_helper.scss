@@ -1,0 +1,76 @@
+// helper functions
+// Flex
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.justify-start{
+  justify-content: start;
+}
+
+.align-center {
+  align-items: center;
+}
+ 
+.justify-center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.d-none {
+  display: none;
+}
+
+.col{
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+// List
+.clean-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Text
+.vertical-text {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+}
+
+.tag-text {
+  color: $clr1;
+  text-transform: uppercase;
+  // @include type(boldCondensed);
+}
+
+.hide {
+  display: none !important;
+}
+
+.relative {
+  position:relative;
+}
+
+.btn{
+  cursor: pointer;
+  background-color: transparent;
+  color: $clr9;
+
+  border: 0;
+  &:hover {
+    background-color: $clr7;
+    border-radius: 4px;
+  }
+}

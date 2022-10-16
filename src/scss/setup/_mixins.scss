@@ -1,0 +1,91 @@
+@mixin nav-link {
+  background-color: $clr1;
+  padding: 0.5em;
+  color: #ffff;
+  border-radius: 2rem;
+}
+
+@mixin input-field {
+  width: 500px;
+}
+@mixin hoverHeader {
+  background-color: $ClrHover;
+  border-radius: 0.3em;
+}
+@mixin boardTitle {
+  font-size: 3rem;
+}
+
+@mixin hoverToEditTxt {
+  outline: solid $clr18 1px;
+  border-radius: 4px;
+}
+
+@mixin headerBtn {
+  // padding: toRem(7) toRem(15);
+  background-color: transparent;
+  border: none;
+  border: 1px solid transparent;
+  font-size: toRem(14);
+  line-height: 24px;
+  height: 40px;
+  padding: 7px 16px;
+  // min-width: 100px;
+  max-width: 180px;
+}
+
+@mixin mkIcon($content) {
+  &::before {
+    content: $content;
+
+    padding: 0 5px;
+    font-family: 'IconFont';
+    font-style: 'normal';
+  }
+}
+
+@mixin modalShadow {
+  box-shadow: 0px 0px 20px 2px #c3c3c3;
+}
+
+@mixin memberPicker {
+  // min-width: 200px;
+  // max-width: 200px;
+  // width: 100%;
+  &:hover {
+    background-color: $clr18;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+
+@mixin colPicker {
+  min-width: 140px;
+  max-width: 140px;
+  &:hover {
+    background-color: $clr18;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+@mixin colStat {
+  min-width: 140px;
+  max-width: 140px;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin stickyContent {
+  // position: sticky;
+  // left: 350px;
+  // z-index: 2000;
+}

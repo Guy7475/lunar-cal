@@ -1,0 +1,47 @@
+$clr1: #FF521C;
+$clr2: #000;
+
+// here goes generic styles for elements h1, buttons...
+* {
+  box-sizing: border-box;  
+  // font-family: 'Roboto', sans-serif;
+  // border: 1px solid greenyellow;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  // color: $clr9;
+
+  font-family: 'Roboto 400';
+  // @media (max-width: 1300px) {
+  //   font-size: smaller;
+  // }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  // font-family: 'Roboto 500';
+}
+
+hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+

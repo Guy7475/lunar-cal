@@ -1,0 +1,88 @@
+.app-body {
+
+    padding-top: $headerHeight;
+
+    .pane {
+        height: #{100vh - $headerHeight};
+        overflow-y: auto;
+    }
+
+    .wide-layout {
+        display: none;
+    }
+
+    .spread-menu {
+        display: none;
+    }
+
+    // tablet view
+    @media (min-width: 750px) {
+
+        .router-view,
+        .hp {
+            display: none;
+        }
+
+        .wide-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+                "da sp"
+            ;
+
+            .da {
+                grid-area: da;
+            }
+
+            .sp {
+                grid-area: sp;
+            }
+
+            .pane {
+                border-right: 4px solid black;
+            }
+        }
+
+        .hamb-menu {
+            display: none;
+        }
+
+        .spread-menu {
+            display: inline-block;
+        }
+    }
+
+    // desktop view
+    @media (min-width: 1090px) {
+        .router-view {
+            display: none;
+        }
+
+        .wide-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+                "da sp  hp"
+            ;
+
+            .da {
+                grid-area: da;
+            }
+
+            .sp {
+                grid-area: sp;
+            }
+
+            .hp {
+                display: block;
+                grid-area: hp;
+            }
+
+            .pane {
+                border-right: 4px solid black;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.moon-cal {
+    padding-top: $headerHeight;
+
+
+    .weekdays {
+        width: 100%;
+        position: fixed;
+        display: flex;
+
+
+        .day-title {
+            width: 100%;
+            border: 1px solid black;
+            text-align: center;
+            background-color: #c5ff9e;
+        }
+    }
+
+    .cal-body {
+        margin-top: 1.1em;
+
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        .day-preview {
+            * {
+                margin-bottom: .25em;
+            }
+            border: 1px solid #dadada;
+            padding: .5em;
+            font-size: .75em;
+            text-align: center;
+            
+            .moon-icon {
+                margin-bottom: .25em;
+                margin: auto;
+                background-color:black;
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+                // box-shadow: inset .5em 0 1px #000000, 0 0 3px #444;
+            }
+
+            .sunlight {
+                height: .5em;
+                background-color: yellow;
+            }
+        }
+    }
+}
