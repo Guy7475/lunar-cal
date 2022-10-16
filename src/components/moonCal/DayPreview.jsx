@@ -29,14 +29,14 @@ export const DayPreview = (props) => {
         const dayStyle = {};
         if (day.monthNum % 2) {
             dayStyle.color = 'white';
-            dayStyle.backgroundColor = '#252525';
+            dayStyle.backgroundColor = '#3b3b3b';
         } else {
             dayStyle.color = 'white';
             dayStyle.backgroundColor = '#5a5a5a';
         }
         if (isToday()) {
             dayStyle.backgroundColor = 'navy';
-            dayStyle.border = '1px solid orange';
+            dayStyle.border = '1px solid yellow';
         }
         setDayStyle(dayStyle);
     };
