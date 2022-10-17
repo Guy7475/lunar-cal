@@ -48,13 +48,13 @@ export const MoonCal = () => {
     return (
         < section className='moon-cal' >
             <div className="weekdays">
-                <div className='day-title'>Su</div>
-                <div className='day-title'>Mo</div>
-                <div className='day-title'>Tu</div>
-                <div className='day-title'>We</div>
-                <div className='day-title'>Th</div>
-                <div className='day-title'>Fr</div>
-                <div className='day-title'>Sa</div>
+                <div className='day-title'>Sun</div>
+                <div className='day-title'>Mon</div>
+                <div className='day-title'>Tue</div>
+                <div className='day-title'>Wed</div>
+                <div className='day-title'>Thu</div>
+                <div className='day-title'>Fri</div>
+                <div className='day-title'>Sat</div>
             </div>
             <div className='cal-body'>
                 {padding()}
