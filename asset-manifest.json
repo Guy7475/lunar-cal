@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/lunar-cal/static/css/main.e272f9e6.css",
-    "main.js": "/lunar-cal/static/js/main.c61ed832.js",
+    "main.js": "/lunar-cal/static/js/main.a386e3db.js",
     "static/js/787.ea9db562.chunk.js": "/lunar-cal/static/js/787.ea9db562.chunk.js",
     "index.html": "/lunar-cal/index.html",
     "main.e272f9e6.css.map": "/lunar-cal/static/css/main.e272f9e6.css.map",
-    "main.c61ed832.js.map": "/lunar-cal/static/js/main.c61ed832.js.map",
+    "main.a386e3db.js.map": "/lunar-cal/static/js/main.a386e3db.js.map",
     "787.ea9db562.chunk.js.map": "/lunar-cal/static/js/787.ea9db562.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e272f9e6.css",
-    "static/js/main.c61ed832.js"
+    "static/js/main.a386e3db.js"
   ]
 }
