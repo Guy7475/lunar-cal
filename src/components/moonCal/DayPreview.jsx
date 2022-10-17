@@ -54,9 +54,9 @@ export const DayPreview = (props) => {
         const rise = +day.moon.times.rise.slice(0, 2);
         const set = +day.moon.times.set.slice(0, 2);
         if (rise < set) {
-            return <div className="first-horiz-cross">↑ {day.moon.times.rise}</div>;
+            return <div className="first-horiz-cross">🡱 {day.moon.times.rise}</div>;
         } else {
-            return <div className="first-horiz-cross">↓ {day.moon.times.set}</div>;
+            return <div className="first-horiz-cross">🡳 {day.moon.times.set}</div>;
         }
     };
 
@@ -64,9 +64,9 @@ export const DayPreview = (props) => {
         const rise = +day.moon.times.rise.slice(0, 2);
         const set = +day.moon.times.set.slice(0, 2);
         if (rise > set) {
-            return <div className="second-horize-cross">↑ {day.moon.times.rise}</div>;
+            return <div className="second-horize-cross">{day.moon.times.rise} 🡱</div>;
         } else {
-            return <div className="second-horize-cross">↓ {day.moon.times.set}</div>;
+            return <div className="second-horize-cross">{day.moon.times.set} 🡳</div>;
         }
     };
 
