@@ -50,46 +50,71 @@ export const DayPreview = (props) => {
         return { boxShadow: `inset ${cover}em 0 1px white, 0 0 3px #444` };
     };
 
-    const first = () => {
-        const rise = +day.moon.times.rise.slice(0,2)
-        const set = +day.moon.times.set.slice(0,2)
-        if (rise < set) { 
-            return <div>↑ {day.moon.times.rise}</div> 
+    const firstHorizCross = () => {
+        const rise = +day.moon.times.rise.slice(0, 2);
+        const set = +day.moon.times.set.slice(0, 2);
+        if (rise < set) {
+            return <div className="first-horiz-cross">↑ {day.moon.times.rise}</div>;
         } else {
-            return <div>↓ {day.moon.times.set}</div>     
-        } 
-    }
-
-    const second = () => {
-        const rise = +day.moon.times.rise.slice(0,2)
-        const set = +day.moon.times.set.slice(0,2)
-        if (rise > set) { 
-            return <div>↑ {day.moon.times.rise}</div> 
-        } else {
-            return <div>↓ {day.moon.times.set}</div> 
-        } 
-    }
-
-    const sunHour = () => {
-        let hours = []
-        for (let i = 0; i < 23; i++) {  
-            hours.push(<div className="sun-hour" key={i}/>)
+            return <div className="first-horiz-cross">↓ {day.moon.times.set}</div>;
         }
-        return hours
     };
 
-    const setFocus = () => {
-        if (isToday()) {
-            return (
-                <div tabIndex="0" id="todayDiv" ></div>
-            );
+    const secondHorizCross = () => {
+        const rise = +day.moon.times.rise.slice(0, 2);
+        const set = +day.moon.times.set.slice(0, 2);
+        if (rise > set) {
+            return <div className="second-horize-cross">↑ {day.moon.times.rise}</div>;
+        } else {
+            return <div className="second-horize-cross">↓ {day.moon.times.set}</div>;
         }
-        // divRef.current.focus();
+    };
+
+    const moonHour = () => {
+        const rise = +day.moon.times.rise.slice(0, 2);
+        const set = +day.moon.times.set.slice(0, 2);
+        const sunrise = +day.sun.times.rise.slice(0, 2);
+        const sunset = +day.sun.times.set.slice(0, 2);
+
+        let bgc = '';
+        let hours = [];
+        for (let i = 0; i < 23; i++) {
+            if (rise < set) {
+                if (rise < i && i < set) bgc = 'white';
+                else if (i === rise || i === set) bgc = 'grey';
+                else bgc = 'blue';
+            } else {
+                if (i < set || rise < i) bgc = 'white';
+                else if (i === rise || i === set) bgc = 'grey';
+                else bgc = 'blue';
+            }
+            // if (i === 12) bgc = 'orange';
+            // if (i === sunrise || i === sunset) bgc = 'orange';
+            hours.push(<div className="moon-hour" key={i} style={{ backgroundColor: bgc }} />);
+        }
+        return hours;
+    };
+    
+    const sunHour = () => {
+        const sunrise = +day.sun.times.rise.slice(0, 2);
+        const sunset = +day.sun.times.set.slice(0, 2);
+        let bgc = '';
+        // console.log(day.date,sunrise, set)
+        let hours = [];
+        for (let i = 0; i < 23; i++) {
+            if (sunrise < i && i < sunset) bgc = 'yellow';
+            else if (i === sunrise || i === sunset) bgc = 'orange';
+            else bgc = 'blue';
+            // if (i === sunrise || i === sunset) bgc = 'orange';
+            // if (i === 12) bgc = 'orange';
+            hours.push(<div className="sun-hour" key={i} style={{ backgroundColor: bgc }} />);
+        }
+        return hours;
     };
 
     if (!day) return <div>Loading...</div>;
     return (
-        <div className="day-preview" style={dayStyle} ref={divRef}>
+        <div className="day-preview" id={day.date} style={dayStyle} ref={divRef}>
             <div className="day-data">
                 <div className="date">
                     {day.monthName}-
@@ -100,22 +125,20 @@ export const DayPreview = (props) => {
                 </div>
                 <div className="moon-icon" style={moonShadow()} />
                 <div className="times">
-                    
-                        {first()}
-                        {/* ↑ {day.moon.times.rise} */}
-                    
+                    {firstHorizCross()}
                     <div>
-                        {second()}
-                        {/* ↓ {day.moon.times.set} */}
+                        {secondHorizCross()}
                     </div>
                 </div>
             </div>
             <div className="light-bars">
+                <div className="moon-bar" >
+                    {moonHour()}
+                </div>
                 <div className="sun-bar" >
-                    {/* {sunHour()} */}
+                    {sunHour()}
                 </div>
             </div>
-            {setFocus()}
         </div>
     );
 };

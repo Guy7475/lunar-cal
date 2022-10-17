@@ -4,7 +4,7 @@ import { moonCalcService } from '../../services/moonCalService';
 import { useState, useEffect } from 'react';
 import { DayPreview } from './DayPreview';
 
-export const MoonCal = (props) => {
+export const MoonCal = () => {
 
     const [cal, setCal] = useState(null);
 
@@ -39,8 +39,8 @@ export const MoonCal = (props) => {
     const focusOnToday = () => {
         //TODO - remove the timeout and set autofocus
         setTimeout(() => {
-            // document.getElementById("todayDiv").focus();
-            document.getElementById("todayDiv").scrollIntoView({block: 'center' })
+            const todayDate = new Date().toISOString().slice(0, 10);
+            document.getElementById(`${todayDate}`).scrollIntoView({ block: 'center' });
         }, 300);
     };
 
@@ -59,7 +59,7 @@ export const MoonCal = (props) => {
             <div className='cal-body'>
                 {padding()}
                 {cal.map(month => {
-                    return month.days.map((day, index) => <DayPreview key={index} day={day} focusOnToday={focusOnToday} />);
+                    return month.days.map((day, index) => <DayPreview key={index} day={day} />);
                 })}
             </div>
             {focusOnToday()}
