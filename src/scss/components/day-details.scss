@@ -1,0 +1,44 @@
+.day-details {
+    text-align: center;
+
+    .overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.66);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal {
+        background-color: #777777;
+        width: 80%;
+        position: fixed;
+        box-shadow: 0px 0px 16px 5px #7c7c7c;
+    }
+
+    .day-name {
+        font-size: 1em;
+    }
+
+    .days-container {
+        display: flex;
+        
+        .selected-day {
+            width: 50%;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+
+        }
+
+        .prev-day, .next-day {
+            width: 25%;
+        }
+
+        
+    }
+
+}
