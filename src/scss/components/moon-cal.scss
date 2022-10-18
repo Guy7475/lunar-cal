@@ -28,6 +28,8 @@
             text-align: center;
 
             .day-data {
+                padding: .3em;
+
                 * {
                     margin-bottom: .25em;
                 }
@@ -48,13 +50,13 @@
             }
 
             .times {
- 
+
                 .first-horiz-cross {
-                    text-align: start;
+                    text-align: left;
                 }
 
                 .second-horize-cross {
-                    text-align: end;
+                    text-align: right;
                 }
             }
 
@@ -62,25 +64,31 @@
                 height: .5em;
                 width: 104%;
                 display: flex;
-                .moon-hour{
+
+                .moon-hour {
                     width: calc(100%/24);
                 }
-                
+
             }
-            .mid-bar {
-                height: .5em;
+
+            .hour-bar {
+                height: .25em;
                 width: 104%;
                 display: flex;
-                .mid-hour{
+
+                .hour-hour {
                     width: calc(100%/24);
+                    font-size: .25em;
                 }
-                
+
             }
+
             .sun-bar {
                 height: .5em;
                 width: 104%;
                 display: flex;
-                .sun-hour{
+
+                .sun-hour {
                     width: calc(100%/24);
                 }
             }

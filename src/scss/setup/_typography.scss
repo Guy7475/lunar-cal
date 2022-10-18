@@ -1,37 +1,28 @@
 @font-face {
     font-family: 'Roboto 100';
-    // src: url('@/assets/fonts/Roboto-Thin.ttf');
-    src: '../assets/fonts/Roboto-Thin.ttf';
-    
-}
-
-@font-face {
+    src: url('/assets/fonts/Roboto-Thin.ttf');
+  }
+  @font-face {
     font-family: 'Roboto 300';
-    // src: url('@/assets/fonts/Roboto-Light.ttf');
-    src: '../assets/fonts/Roboto-Light.ttf'
-}
-
-@font-face {
+    src: url('/assets/fonts/Roboto-Light.ttf');
+  }
+  @font-face {
     font-family: 'Roboto 400';
-    // src: url('@/assets/fonts/Roboto-Regular.ttf');
-    src: 'C:/Users/Guy/Programming/astrocheck/current-version/frontend/src/assets/fonts/Roboto-Thin.ttf'
-}
-
-@font-face {
+    // react wont allow the '@' so I removed it and now it works
+    src: url('/assets/fonts/Roboto-Regular.ttf');
+  }
+  
+  @font-face {
     font-family: 'Roboto 500';
-    // src: url('@/assets/fonts/Roboto-Medium.ttf');
-    src: '../assets/fonts/Roboto-Medium.ttf'
-}
-
-@font-face {
+    src: url('/assets/fonts/Roboto-Medium.ttf');
+  }
+  @font-face {
     font-family: 'Roboto 700';
-    // src: url('@/assets/fonts/Roboto-Bold.ttf');
-    src: '../assets/fonts/Roboto-Bold.ttf'
-}
-
-@font-face {
+    src: url('/assets/fonts/Roboto-Bold.ttf');
+  }
+  @font-face {
     font-family: 'IconFont';
-
-    // src: url('@/assets/fonts/icon.woff');
-    src: '../assets/fonts/icon.woff'
-}
+  
+    src: url('/assets/fonts/icon.woff');
+  }
+  
