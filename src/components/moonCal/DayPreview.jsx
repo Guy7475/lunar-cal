@@ -82,11 +82,11 @@ export const DayPreview = (props) => {
             if (rise < set) {
                 if (rise < i && i < set) bgc = 'white';
                 else if (i === rise || i === set) bgc = 'grey';
-                else bgc = 'blue';
+                else bgc = 'midnightblue';
             } else {
                 if (i < set || rise < i) bgc = 'white';
                 else if (i === rise || i === set) bgc = 'grey';
-                else bgc = 'blue';
+                else bgc = 'midnightblue';
             }
             // if (i === 12) bgc = 'orange';
             // if (i === sunrise || i === sunset) bgc = 'orange';
@@ -104,7 +104,7 @@ export const DayPreview = (props) => {
         for (let i = 0; i < 23; i++) {
             if (sunrise < i && i < sunset) bgc = 'yellow';
             else if (i === sunrise || i === sunset) bgc = 'orange';
-            else bgc = 'blue';
+            else bgc = 'midnightblue';
             // if (i === sunrise || i === sunset) bgc = 'orange';
             // if (i === 12) bgc = 'orange';
             hours.push(<div className="sun-hour" key={i} style={{ backgroundColor: bgc }} />);
