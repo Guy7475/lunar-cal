@@ -15,30 +15,115 @@
 
     .modal {
         background-color: #777777;
-        width: 80%;
+        width: 90%;
         position: fixed;
         box-shadow: 0px 0px 16px 5px #7c7c7c;
+
+        .close-btn {
+            text-align: right;
+            margin: .5em;
+        }
     }
 
     .day-name {
         font-size: 1em;
     }
 
-    .days-container {
-        display: flex;
-        
-        .selected-day {
-            width: 50%;
-            border-left: 1px solid white;
-            border-right: 1px solid white;
-
-        }
-
-        .prev-day, .next-day {
-            width: 25%;
-        }
-
-        
+    .moon-icon-modal {
+        margin: auto;
+        margin-bottom: .5em;
+        margin-top: .5em;
+        background-color: black;
+        width: 3.5em;
+        height: 3.5em;
+        border-radius: 50%;
     }
 
+    .days-container {
+        display: flex;
+
+        .selected-day {
+            width: 100%;
+            // border-left: 1px solid white;
+            // border-right: 1px solid white;
+
+        }
+
+        .prev-day,
+        .next-day {
+            // width: 25%;
+        }
+
+        .day-data-modal {
+            padding: .3em;
+
+            * {
+                margin-bottom: .25em;
+            }
+
+            .date-modal {
+                font-weight: 600;
+                font-size: 1.5em;
+            }
+
+            .illum-modal {
+                font-size: 1.5em;
+            }
+
+            .moon-icon-modal {
+                margin: auto;
+                margin-bottom: .5em;
+                margin-top: .5em;
+                background-color: black;
+                width: 4em;
+                height: 4em;
+                border-radius: 50%;
+            }
+        }
+
+        .times-modal {
+
+            .first-horiz-cross {
+                text-align: left;
+            }
+
+            .second-horize-cross {
+                text-align: right;
+            }
+        }
+
+        .moon-bar-modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 66%;
+            margin-bottom: 1em;
+
+            .moon-hour-modal {
+                width: calc(100%/24);
+                padding: .25em;
+            }
+
+        }
+
+        .hour-bar-modal {
+            height: .25em;
+            display: flex;
+
+            .hour-hour-modal {
+                width: calc(100%/24);
+                font-size: .25em;
+            }
+
+        }
+
+        .sun-bar-modal {
+            height: .5em;
+            display: flex;
+
+            .sun-hour-modal {
+                width: calc(100%/24);
+            }
+        }
+    }
 }

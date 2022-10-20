@@ -2,39 +2,6 @@ import { useEffect, useState } from "react";
 
 export const DayDetails = (props) => {
     const { open, day, onClose } = props;
-    const [dayStyle, setDayStyle] = useState(null);
-
-    useEffect(() => {
-        isToday();
-        loadDayPreview();
-        return () => {
-
-        };
-    }, []);
-
-    const isToday = () => {
-        // console.log(day)
-        const todayDate = new Date().toISOString().slice(0, 10);
-        if (day.date === todayDate) {
-            return true;
-        }
-    };
-
-    const loadDayPreview = () => {
-        const dayStyle = {};
-        if (day.monthNum % 2) {
-            dayStyle.color = 'white';
-            dayStyle.backgroundColor = '#333333';
-        } else {
-            dayStyle.color = 'white';
-            dayStyle.backgroundColor = '#5a5a5a';
-        }
-        if (isToday()) {
-            dayStyle.backgroundColor = 'navy';
-            dayStyle.border = '1px solid white';
-        }
-        setDayStyle(dayStyle);
-    };
 
     const moonShadow = () => {
         const phase = day.moon.illum.phase;
@@ -74,20 +41,49 @@ export const DayDetails = (props) => {
         const sunset = +day.sun.times.set.slice(0, 2);
 
         let bgc = '';
+        let fc = 'whitesmoke';
+        let borc = 'whitesmoke';
         let hours = [];
-        for (let i = 0; i < 23; i++) {
+        for (let i = 0; i <= 23; i++) {
             if (rise < set) {
-                if (rise < i && i < set) bgc = 'white';
-                else if (i === rise || i === set) bgc = '#4c4ca8';
-                else bgc = 'midnightblue';
+                if (rise < i && i < set) {
+                    bgc = 'white';
+                    fc = 'black';
+                    borc = 'black';
+                }
+                else if (i === rise || i === set) {
+                    bgc = '#b2b0ff';
+                    fc = 'black';
+                    borc = 'black';
+                }
+                else {
+                    bgc = 'midnightblue';
+                    fc = 'whitesmoke';
+                    borc = 'whitesmoke';
+                }
             } else {
-                if (i < set || rise < i) bgc = 'white';
-                else if (i === rise || i === set) bgc = '#4c4ca8';
-                else bgc = 'midnightblue';
+                if (i < set || rise < i) {
+                    bgc = 'white';
+                    fc = 'black';
+                    borc = 'black';
+                }
+                else if (i === rise || i === set) {
+                    bgc = '#b2b0ff';
+                    fc = 'black';
+                    borc = 'black';
+                }
+                else {
+                    bgc = 'midnightblue';
+                    fc = 'whitesmoke';
+                    borc = 'whitesmoke';
+                }
             }
             // if (i === 12) bgc = 'orange';
             // if (i === sunrise || i === sunset) bgc = 'orange';
-            hours.push(<div className="moon-hour" key={i} style={{ backgroundColor: bgc }} />);
+            let hourStr = `${i}`;
+            if (i < 10) hourStr = `0${i}`;
+            if (i===13) borc = 'red'
+            hours.push(<div className="moon-hour-modal" key={i} style={{ backgroundColor: bgc, color: fc, borderLeft: `1px solid ${borc}` }}>{hourStr}</div>);
         }
         return hours;
     };
@@ -98,13 +94,13 @@ export const DayDetails = (props) => {
         let bgc = '';
         // console.log(day.date,sunrise, set)
         let hours = [];
-        for (let i = 0; i < 23; i++) {
+        for (let i = 0; i <= 23; i++) {
             if (sunrise < i && i < sunset) bgc = 'yellow';
             else if (i === sunrise || i === sunset) bgc = 'orange';
             else bgc = 'midnightblue';
             // if (i === sunrise || i === sunset) bgc = 'orange';
             // if (i === 12) bgc = 'orange';
-            hours.push(<div className="sun-hour" key={i} style={{ backgroundColor: bgc }} />);
+            hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc }} />);
         }
         return hours;
     };
@@ -117,40 +113,35 @@ export const DayDetails = (props) => {
         <div className="day-details">
             <div className="overlay" onClick={onClose}>
                 <div className="modal" onClick={(e) => { e.stopPropagation(); }}>
-                    <div><button onClick={onClose}>x</button></div>
+                    <div className="close-btn"><button onClick={onClose}>x</button></div>
                     {/* reuse of preview */}
                     <div className="days-container">
                         <div className="prev-day">
-
                         </div>
                         <div className="selected-day">
-
-                            <div className="day-data">
-                                <div className="date">
-                                    <div className="day-name">
-                                        {day.dayName}
-                                    </div>
-                                    <div className="formatted-date">
-                                        {day.monthName} {day.dayInMonth}, {day.date.slice(0, 4)}
-                                    </div>
+                            <div className="day-data-modal">
+                                <div className="date-modal">
+                                    {day.monthName}-
+                                    {day.dayInMonth}
                                 </div>
-                                <div className="illum">
+                                <div className="illum-modal">
                                     {Math.round(day.moon.illum.fraction * 100)}%
                                 </div>
-                                <div className="moon-icon" style={moonShadow()} />
-                                <div className="times">
+                                <div className="moon-icon-modal" style={moonShadow()} />
+                                <div className="times-modal">
                                     {firstHorizCross()}
                                     {secondHorizCross()}
                                 </div>
                             </div>
-                            <div className="light-bars">
-                                <div className="moon-bar" >
+                            <div className="light-bars-modal">
+                                <div className="moon-bar-modal" >
                                     {moonHour()}
                                 </div>
-                                <div className="sun-bar" >
+                                {/* <div className="sun-bar-modal" >
                                     {sunHour()}
-                                </div>
+                                </div> */}
                             </div>
+
                         </div>
                         <div className="next-day">
 
