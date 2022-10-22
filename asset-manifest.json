@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lunar-cal/static/css/main.9c0c3c7f.css",
-    "main.js": "/lunar-cal/static/js/main.3751ac2e.js",
+    "main.css": "/lunar-cal/static/css/main.85646c63.css",
+    "main.js": "/lunar-cal/static/js/main.1bdc0a98.js",
     "static/js/787.ea9db562.chunk.js": "/lunar-cal/static/js/787.ea9db562.chunk.js",
     "static/media/Roboto-Medium.ttf": "/lunar-cal/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
     "static/media/Roboto-Thin.ttf": "/lunar-cal/static/media/Roboto-Thin.1711b41f3ae4cb322eea.ttf",
@@ -10,12 +10,12 @@
     "static/media/Roboto-Light.ttf": "/lunar-cal/static/media/Roboto-Light.8be2d1487420548b3b8d.ttf",
     "static/media/icon.woff": "/lunar-cal/static/media/icon.9105c3c7368ffa8ce48c.woff",
     "index.html": "/lunar-cal/index.html",
-    "main.9c0c3c7f.css.map": "/lunar-cal/static/css/main.9c0c3c7f.css.map",
-    "main.3751ac2e.js.map": "/lunar-cal/static/js/main.3751ac2e.js.map",
+    "main.85646c63.css.map": "/lunar-cal/static/css/main.85646c63.css.map",
+    "main.1bdc0a98.js.map": "/lunar-cal/static/js/main.1bdc0a98.js.map",
     "787.ea9db562.chunk.js.map": "/lunar-cal/static/js/787.ea9db562.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c0c3c7f.css",
-    "static/js/main.3751ac2e.js"
+    "static/css/main.85646c63.css",
+    "static/js/main.1bdc0a98.js"
   ]
 }
