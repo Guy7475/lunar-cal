@@ -6,10 +6,11 @@ export const DayDetails = (props) => {
     const moonShadow = () => {
         const phase = day.moon.illum.phase;
         let cover;
-        const factor = 3;
+        const factor = 8.1
+        ;
 
-        if (phase <= 0.5) cover = phase * factor;
-        else cover = -(1 - phase) * factor;
+        if (phase <= 0.5) cover = -(phase * factor);
+        else cover = (1 - phase) * factor;
 
         return { boxShadow: `inset ${cover}em 0 1px white, 0 0 3px #444` };
     };
@@ -78,11 +79,9 @@ export const DayDetails = (props) => {
                     borc = 'whitesmoke';
                 }
             }
-            // if (i === 12) bgc = 'orange';
-            // if (i === sunrise || i === sunset) bgc = 'orange';
             let hourStr = `${i}`;
             if (i < 10) hourStr = `0${i}`;
-            if (i===13) borc = 'red'
+            if (i === 13) borc = 'red';
             hours.push(<div className="moon-hour-modal" key={i} style={{ backgroundColor: bgc, color: fc, borderLeft: `1px solid ${borc}` }}>{hourStr}</div>);
         }
         return hours;
@@ -92,15 +91,30 @@ export const DayDetails = (props) => {
         const sunrise = +day.sun.times.rise.slice(0, 2);
         const sunset = +day.sun.times.set.slice(0, 2);
         let bgc = '';
-        // console.log(day.date,sunrise, set)
+        let fc = 'black';
+        let borc = 'black';
         let hours = [];
         for (let i = 0; i <= 23; i++) {
-            if (sunrise < i && i < sunset) bgc = 'yellow';
-            else if (i === sunrise || i === sunset) bgc = 'orange';
-            else bgc = 'midnightblue';
-            // if (i === sunrise || i === sunset) bgc = 'orange';
-            // if (i === 12) bgc = 'orange';
-            hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc }} />);
+            if (sunrise < i && i < sunset) {
+                bgc = 'yellow';
+                fc = 'black';
+                borc = 'black';
+            }
+            else if (i === sunrise || i === sunset) {
+                bgc = 'orange';
+                fc = 'black';
+                borc = 'black';
+            }
+            else {
+                bgc = 'midnightblue';
+                fc = 'whitesmoke';
+                borc = 'whitesmoke';
+            }
+            let hourStr = `${i}`;
+            if (i < 10) hourStr = `0${i}`;
+            if (i === 13) borc = 'red';
+            hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc, color: fc, borderLeft: `1px solid ${borc}` }}>{hourStr}</div>);
+            // hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc }} />);
         }
         return hours;
     };
@@ -127,7 +141,12 @@ export const DayDetails = (props) => {
                                 <div className="illum-modal">
                                     Illumination: {Math.round(day.moon.illum.fraction * 100)}%
                                 </div>
-                                {/* <div className="moon-icon-modal" style={moonShadow()} /> */}
+                                <div className="sphere">
+                                    <div className="light hemisphere"></div>
+                                    <div className="dark hemisphere"></div>
+                                    <div className="divider"></div>
+                                </div>
+                                <div className="moon-icon-modal" style={moonShadow()} />
                                 <div className="times-modal">
                                     {firstHorizCross()}
                                     {secondHorizCross()}
@@ -137,9 +156,9 @@ export const DayDetails = (props) => {
                                 <div className="moon-bar-modal" >
                                     {moonHour()}
                                 </div>
-                                {/* <div className="sun-bar-modal" >
+                                <div className="sun-bar-modal" >
                                     {sunHour()}
-                                </div> */}
+                                </div>
                             </div>
 
                         </div>

@@ -44,10 +44,10 @@ export const DayPreview = (props) => {
     const moonShadow = () => {
         const phase = day.moon.illum.phase;
         let cover;
-        const factor = 3;
+        const factor = 4.1;
 
-        if (phase <= 0.5) cover = phase * factor;
-        else cover = -(1 - phase) * factor;
+        if (phase <= 0.5) cover = -(phase * factor);
+        else cover = (1 - phase) * factor;
 
         return { boxShadow: `inset ${cover}em 0 1px white, 0 0 3px #444` };
     };
@@ -126,6 +126,11 @@ export const DayPreview = (props) => {
                     {Math.round(day.moon.illum.fraction * 100)}%
                 </div>
                 <div className="moon-icon" style={moonShadow()} />
+                <div className="sphere">
+                    <div className="light hemisphere"></div>
+                    <div className="dark hemisphere"></div>
+                    <div className="divider"></div>
+                </div>
                 <div className="times">
                     {firstHorizCross()}
                     {secondHorizCross()}
