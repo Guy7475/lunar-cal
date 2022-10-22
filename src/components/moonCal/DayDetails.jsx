@@ -125,9 +125,9 @@ export const DayDetails = (props) => {
                                     {day.dayInMonth}
                                 </div>
                                 <div className="illum-modal">
-                                    {Math.round(day.moon.illum.fraction * 100)}%
+                                    Illumination: {Math.round(day.moon.illum.fraction * 100)}%
                                 </div>
-                                <div className="moon-icon-modal" style={moonShadow()} />
+                                {/* <div className="moon-icon-modal" style={moonShadow()} /> */}
                                 <div className="times-modal">
                                     {firstHorizCross()}
                                     {secondHorizCross()}
