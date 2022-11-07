@@ -1,19 +1,29 @@
 import { storageService } from "../../services/async-storage-service";
 import { cal2022 } from "../../data/2022_cal";
-import { cal2023 } from "../../data/2023_cal";
 import { moonCalcService } from '../../services/moonCalService';
 import { useState, useEffect } from 'react';
 import { DayPreview } from './DayPreview';
 
 export const MoonCal = () => {
-    const cal22 = cal2022
-    const cal23 = cal2023
+
+    const [cal, setCal] = useState(null);
 
     useEffect(() => {
+        loadCalendar();
         return () => {
 
         };
     }, []);
+
+
+    const loadCalendar = async () => {
+        // const cal = await storageService.query('moon_db')
+        // const cal = moonCalcService.dateFnsCal(2022);
+        const cal23 = moonCalcService.dateFnsCal(2023)
+        const cal = cal2022;
+        // console.log(cal[11].days[30].moon.times.rise);
+        setCal(cal);
+    };
 
     const padding = () => {
         let pad = [
@@ -35,7 +45,7 @@ export const MoonCal = () => {
         }, 300);
     };
 
-    if (!cal22 || !cal23 ) return <div>Loading...</div>;
+    if (!cal) return <div>Loading...</div>;
     return (
         < section className='moon-cal' >
             <div className="weekdays">
@@ -49,11 +59,8 @@ export const MoonCal = () => {
             </div>
             <div className='cal-body'>
                 {padding()}
-                {cal22.map(month => {
-                    return month.days.map((day, index) => <DayPreview key={index} day={day} year={2022}/>);
-                })}
-                {cal23.map(month => {
-                    return month.days.map((day, index) => <DayPreview key={index} day={day} year={2023}/>);
+                {cal.map(month => {
+                    return month.days.map((day, index) => <DayPreview key={index} day={day} />);
                 })}
             </div>
             {focusOnToday()}

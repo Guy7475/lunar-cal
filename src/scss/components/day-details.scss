@@ -49,11 +49,6 @@
 
         }
 
-        .prev-day,
-        .next-day {
-            // width: 25%;
-        }
-
         .day-data-modal {
             padding: .3em;
 
@@ -97,7 +92,7 @@
             justify-content: center;
             align-items: center;
             font-size: 66%;
-            margin-bottom: .3em;
+            margin-bottom: 1px;
 
             .moon-hour-modal {
                 width: calc(100%/24);

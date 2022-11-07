@@ -4,7 +4,7 @@ import { DayDetails } from "./DayDetails";
 
 export const DayPreview = (props) => {
 
-    const { day } = props;
+    const { day, year } = props;
     const [dayStyle, setDayStyle] = useState(null);
     const [openDetails, setOpenDetails] = useState(false);
     const divRef = useRef(null);
@@ -119,18 +119,12 @@ export const DayPreview = (props) => {
         <div className="day-preview" id={day.date} style={dayStyle} ref={divRef}>
             <div className="day-data" onClick={() => { setOpenDetails(true); }}>
                 <div className="date">
-                    {day.monthName}-
-                    {day.dayInMonth}
+                    {day.monthName} {day.dayInMonth}, {year}
                 </div>
                 <div className="illum">
                     {Math.round(day.moon.illum.fraction * 100)}%
                 </div>
                 <div className="moon-icon" style={moonShadow()} />
-                <div className="sphere">
-                    <div className="light hemisphere"></div>
-                    <div className="dark hemisphere"></div>
-                    <div className="divider"></div>
-                </div>
                 <div className="times">
                     {firstHorizCross()}
                     {secondHorizCross()}

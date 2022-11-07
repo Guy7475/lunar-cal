@@ -6,8 +6,7 @@ export const DayDetails = (props) => {
     const moonShadow = () => {
         const phase = day.moon.illum.phase;
         let cover;
-        const factor = 8.1
-        ;
+        const factor = 8.5;
 
         if (phase <= 0.5) cover = -(phase * factor);
         else cover = (1 - phase) * factor;
@@ -82,7 +81,20 @@ export const DayDetails = (props) => {
             let hourStr = `${i}`;
             if (i < 10) hourStr = `0${i}`;
             if (i === 13) borc = 'red';
-            hours.push(<div className="moon-hour-modal" key={i} style={{ backgroundColor: bgc, color: fc, borderLeft: `1px solid ${borc}` }}>{hourStr}</div>);
+            hours.push(
+                <div
+                    className="moon-hour-modal"
+                    key={i}
+                    style={{
+                        backgroundColor: bgc,
+                        color: fc,
+                        borderLeft: `1px solid ${borc}`,
+                        // borderBottom: `1px solid ${borc}`
+                    }}
+                >
+                    {hourStr}
+                </div>
+            );
         }
         return hours;
     };
@@ -113,7 +125,20 @@ export const DayDetails = (props) => {
             let hourStr = `${i}`;
             if (i < 10) hourStr = `0${i}`;
             if (i === 13) borc = 'red';
-            hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc, color: fc, borderLeft: `1px solid ${borc}` }}>{hourStr}</div>);
+            hours.push(
+                <div
+                    className="sun-hour-modal"
+                    key={i}
+                    style={{
+                        backgroundColor: bgc,
+                        color: fc,
+                        borderLeft: `1px solid ${borc}`,
+                        // borderTop: `1px solid ${borc}`
+                    }}
+                >
+                    {hourStr}
+                </div>
+            );
             // hours.push(<div className="sun-hour-modal" key={i} style={{ backgroundColor: bgc }} />);
         }
         return hours;
@@ -140,11 +165,6 @@ export const DayDetails = (props) => {
                                 </div>
                                 <div className="illum-modal">
                                     Illumination: {Math.round(day.moon.illum.fraction * 100)}%
-                                </div>
-                                <div className="sphere">
-                                    <div className="light hemisphere"></div>
-                                    <div className="dark hemisphere"></div>
-                                    <div className="divider"></div>
                                 </div>
                                 <div className="moon-icon-modal" style={moonShadow()} />
                                 <div className="times-modal">
